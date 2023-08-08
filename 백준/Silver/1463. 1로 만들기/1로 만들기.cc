@@ -14,8 +14,8 @@ int main() {
 		if (i % 2 == 0) { // 2의배수
 			dp[i] = min(dp[i], dp[i / 2] + 1);
 		}
-		if (i % 3 == 0 && (dp[i] == 0 || dp[i] > dp[i / 3] + 1)) {
-			dp[i] = dp[i / 3] + 1;
+		if (i % 3 == 0) {
+			dp[i] = min(dp[i], dp[i / 3] + 1);
 		}
 	}
 
