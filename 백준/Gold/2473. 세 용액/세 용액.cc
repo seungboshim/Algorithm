@@ -34,7 +34,7 @@ int main() {
 		mid = left + 1;
 		right = N - 1;
 
-		while (left < mid && mid < right) {
+		while (mid < right) {
 			ll val = v[left] + v[mid] + v[right];
 
 			if (minVal > abs(val)) { // 혼합 특성값의 최소값 갱신
@@ -52,7 +52,6 @@ int main() {
 			}
 		}
 	}
-
 
 	cout << tuple_left << " " << tuple_mid << " " << tuple_right << "\n";
 	return 0;
