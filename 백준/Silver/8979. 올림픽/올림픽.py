@@ -12,13 +12,18 @@ for _ in range(N):
   medals.append(medal)
   
 medals.sort(key=lambda x: (-x[1], -x[2], -x[3]))
+ranking = []
 
 for i in range(N):
-  if medals[i][0] == K:
     if i == 0:
-      print(1)
+      ranking.append([medals[i][0], 1])
     else:
       if (medals[i][1] == medals[i-1][1] and medals[i][2] == medals[i-1][2] and medals[i][3] == medals[i-1][3]):
-        print(i)
-      else: print(i+1)
+        ranking.append([medals[i][0], ranking[i-1][1]]) # 동점이면 이전 순위랑 같게
+      else:
+        ranking.append([medals[i][0], i+1])
+
+for i in range(N):
+  if ranking[i][0] == K:
+    print(ranking[i][1])
     break
