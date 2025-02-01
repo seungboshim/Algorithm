@@ -9,11 +9,13 @@ city = list(map(int, input().split(' ')))
 #  2 3 1
 # 5 2 4 1
 
-amount = city[0] * dist[0] # 0번 도시 -> 1번 도시 필요 기름
+minOil = city[0]
+amount = 0
 
-for i in range(1, N-1):
-  prevAmount = city[i-1] * dist[i]
-  tempAmount = city[i] * dist[i] # 1 -> 2
-  amount = min(amount+tempAmount, amount+prevAmount)
+for i in range(0, N-1):
+  minOil = min(city[i], minOil)
+  tempAmount = minOil * dist[i]
+  amount += tempAmount
+  
 
 print(amount)
